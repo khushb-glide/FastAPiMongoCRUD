@@ -1,27 +1,23 @@
 # FastAPI Mongo Notes App
 
-A simple notes web application built using **FastAPI** and **MongoDB**.
-
-The project implements basic CRUD functionality with a minimal web UI. The focus was on building a clean backend, correct data flow, and a working end-to-end system rather than spending time on UI polish.
+A simple notes application built using FastAPI and MongoDB.
 
 ---
 
 ## Features
 
-* View all notes
-* Create a new note
-* Edit an existing note
-* Delete a note
-* Notes are saved only when explicitly clicking **Save**
+* Create, read, update, and delete notes
+* Explicit save (no auto-save)
+* Minimal web interface
 
 ---
 
 ## Tech Stack
 
-* **Backend:** FastAPI (Python)
-* **Database:** MongoDB
-* **Frontend:** HTML, CSS, JavaScript (no frameworks)
-* **Testing:** Pytest
+* FastAPI (Python)
+* MongoDB
+* HTML, CSS, JavaScript
+* Pytest
 
 ---
 
@@ -46,7 +42,7 @@ requirements.txt
 
 ---
 
-## Running the Project
+## Setup & Run
 
 ### Prerequisites
 
@@ -55,19 +51,17 @@ requirements.txt
 
 ### Environment Variable
 
-Set the MongoDB connection string using an environment variable:
-
 ```
 MONGO_URI=mongodb://localhost:27017
 ```
 
-### Start the Server
+### Run
 
 ```
 uvicorn backend.main:app --reload
 ```
 
-Open in browser:
+Open:
 
 ```
 http://127.0.0.1:8000
@@ -77,22 +71,6 @@ http://127.0.0.1:8000
 
 ## Testing
 
-Tests are written using **pytest**.
-
-Run all tests with:
-
 ```
 pytest
 ```
-
----
-
-## Notes
-
-* MongoDB data is stored in the `notes_app` database
-* Configuration values (like database URLs) are not hardcoded
-* The UI is intentionally minimal and functional
-
----
-
-Built as a focused backend-oriented project to demonstrate API design, database interaction, and basic testing.
