@@ -1,118 +1,98 @@
-📝 Notes Web App
+# FastAPI Mongo Notes App
 
-A clean, full-stack application for managing personal notes. This project features a high-performance FastAPI backend, a MongoDB NoSQL database for flexible data storage, and a responsive Vanilla JavaScript frontend.
+A simple notes web application built using **FastAPI** and **MongoDB**.
 
-🚀 Features
+The project implements basic CRUD functionality with a minimal web UI. The focus was on building a clean backend, correct data flow, and a working end-to-end system rather than spending time on UI polish.
 
-Complete CRUD Functionality: Create, view, update, and delete notes seamlessly.
+---
 
-Asynchronous Frontend: Uses the modern Fetch API to interact with the backend without full page reloads.
+## Features
 
-RESTful API Design: Structured endpoints with Pydantic models for request validation.
+* View all notes
+* Create a new note
+* Edit an existing note
+* Delete a note
+* Notes are saved only when explicitly clicking **Save**
 
-Robust Data Storage: MongoDB integration via PyMongo for efficient document storage.
+---
 
-Automated Testing: Includes a test suite using pytest to ensure API reliability.
+## Tech Stack
 
-🛠️ Tech Stack
+* **Backend:** FastAPI (Python)
+* **Database:** MongoDB
+* **Frontend:** HTML, CSS, JavaScript (no frameworks)
+* **Testing:** Pytest
 
-Backend: FastAPI (Python)
+---
 
-Database: MongoDB
+## Project Structure
 
-Frontend: HTML5, CSS3, Vanilla JavaScript
+```
+backend/
+  main.py          # FastAPI app and routes
+  mongo_notes.py   # MongoDB connection and CRUD logic
 
-Server: Uvicorn (ASGI)
+frontend/
+  notes_list.html  # Notes list page
+  notes_edit.html  # Note editor page
+  styles.css
+  notes.js
 
-Testing: Pytest & HTTPX
+tests/
+  test_notes_api.py
 
-📂 Project Structure
+requirements.txt
+```
 
-├── backend/
-│   ├── main.py            # Entry point: FastAPI routes and server config
-│   ├── mongo_notes.py     # Database layer: MongoDB CRUD operations
-│   └── test_notes_api.py  # Test suite for API endpoints
-├── frontend/
-│   ├── notes_list.html    # Dashboard view (Lists all notes)
-│   ├── notes_edit.html    # Editor view (Create/Edit/Delete notes)
-│   ├── notes.js           # Client-side logic and API integration
-│   └── styles.css         # Application-wide styling
-├── requirements.txt       # Python dependency list
-└── .env                   # Configuration for MONGO_URI (Local)
+---
 
+## Running the Project
 
-⚙️ Setup & Installation
+### Prerequisites
 
-1. Prerequisites
+* Python 3.x
+* MongoDB running locally
 
-Python 3.10+
+### Environment Variable
 
-MongoDB installed locally or an Atlas connection string.
+Set the MongoDB connection string using an environment variable:
 
-2. Configure Environment
+```
+MONGO_URI=mongodb://localhost:27017
+```
 
-Set your MongoDB connection string as an environment variable or add it to a .env file in the root:
+### Start the Server
 
-# Example for local MongoDB
-export MONGO_URI="mongodb://localhost:27017"
-
-
-3. Install Dependencies
-
-pip install -r requirements.txt
-
-
-4. Run the Application
-
-Start the development server with auto-reload enabled:
-
+```
 uvicorn backend.main:app --reload
+```
 
+Open in browser:
 
-The application will be live at http://127.0.0.1:8000.
+```
+http://127.0.0.1:8000
+```
 
-🧪 Testing
+---
 
-To run the automated API tests:
+## Testing
 
-pytest backend/test_notes_api.py
+Tests are written using **pytest**.
 
+Run all tests with:
 
-🔌 API Reference
+```
+pytest
+```
 
-Endpoint
+---
 
-Method
+## Notes
 
-Description
+* MongoDB data is stored in the `notes_app` database
+* Configuration values (like database URLs) are not hardcoded
+* The UI is intentionally minimal and functional
 
-/api/notes
+---
 
-GET
-
-Fetch all notes
-
-/api/notes
-
-POST
-
-Create a new note
-
-/api/notes/{id}
-
-GET
-
-Retrieve a single note
-
-/api/notes/{id}
-
-PUT
-
-Update an existing note
-
-/api/notes/{id}
-
-DELETE
-
-Remove a note
-
+Built as a focused backend-oriented project to demonstrate API design, database interaction, and basic testing.
